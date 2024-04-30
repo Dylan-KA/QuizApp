@@ -10,3 +10,7 @@ Quiz questions and answers are pulled from an API: https://opentdb.com/api_confi
 Pick from different difficulty levels & different categories
 Earn score for correct answers
 Save scores to a leaderboard in the cloud, users can compete for the highest score.
+
+Use Firebase to implement a cloud based score board
+
+Use one sign in option atleast (e.g. Google login)
