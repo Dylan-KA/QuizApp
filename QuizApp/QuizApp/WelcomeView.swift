@@ -49,12 +49,10 @@ struct WelcomeView: View {
                 .padding()
                 Spacer()
             }
-            .padding()
+            .padding(70)
             .background(Color(#colorLiteral(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)))
             .edgesIgnoringSafeArea(.all)
         }
-        .padding(.horizontal, 56)
-        .background(Color(#colorLiteral(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)))
     }
 }
 
