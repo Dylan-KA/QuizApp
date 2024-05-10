@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B29FA182BE9C02800166EE2 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B29FA172BE9C02800166EE2 /* CategoriesView.swift */; };
+		6B7E00B52BEDBC2B00292841 /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7E00B42BEDBC2B00292841 /* CategoriesViewModel.swift */; };
+		6B7E00B92BEDC43400292841 /* QuizStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7E00B82BEDC43400292841 /* QuizStartView.swift */; };
+		6B7E00BB2BEDD47400292841 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7E00BA2BEDD47400292841 /* TestView.swift */; };
 		6BA2C33A2BE07509000AF6FE /* QuizAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */; };
 		6BA2C33C2BE07509000AF6FE /* QuizSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2C33B2BE07509000AF6FE /* QuizSettingsView.swift */; };
 		6BA2C33E2BE0750A000AF6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2C33D2BE0750A000AF6FE /* Assets.xcassets */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6B29FA172BE9C02800166EE2 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		6B7E00B42BEDBC2B00292841 /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		6B7E00B82BEDC43400292841 /* QuizStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizStartView.swift; sourceTree = "<group>"; };
+		6B7E00BA2BEDD47400292841 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		6BA2C3362BE07509000AF6FE /* QuizApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizAppApp.swift; sourceTree = "<group>"; };
 		6BA2C33B2BE07509000AF6FE /* QuizSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSettingsView.swift; sourceTree = "<group>"; };
@@ -59,6 +67,10 @@
 				6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */,
 				6BA2C33B2BE07509000AF6FE /* QuizSettingsView.swift */,
 				6BE0456F2BE0D75300C72002 /* QuizSettingsViewModel.swift */,
+				6B29FA172BE9C02800166EE2 /* CategoriesView.swift */,
+				6B7E00B42BEDBC2B00292841 /* CategoriesViewModel.swift */,
+				6B7E00B82BEDC43400292841 /* QuizStartView.swift */,
+				6B7E00BA2BEDD47400292841 /* TestView.swift */,
 				6BA2C33D2BE0750A000AF6FE /* Assets.xcassets */,
 				6BA2C33F2BE0750A000AF6FE /* Preview Content */,
 			);
@@ -145,8 +157,12 @@
 			files = (
 				6BE045702BE0D75300C72002 /* QuizSettingsViewModel.swift in Sources */,
 				6BA2C33C2BE07509000AF6FE /* QuizSettingsView.swift in Sources */,
+				6B7E00B52BEDBC2B00292841 /* CategoriesViewModel.swift in Sources */,
 				6BE0456E2BE0A3A000C72002 /* QuizAPI.swift in Sources */,
+				6B7E00BB2BEDD47400292841 /* TestView.swift in Sources */,
+				6B29FA182BE9C02800166EE2 /* CategoriesView.swift in Sources */,
 				6BA2C33A2BE07509000AF6FE /* QuizAppApp.swift in Sources */,
+				6B7E00B92BEDC43400292841 /* QuizStartView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
