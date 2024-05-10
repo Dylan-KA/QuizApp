@@ -21,6 +21,7 @@ struct QuizStartView: View {
     
     var body: some View {
             VStack {
+                Spacer()
                 Text("\(category)")
                     .font(.system(size: 40))
                     .bold()
@@ -28,17 +29,18 @@ struct QuizStartView: View {
                     .onAppear {
                         fetchQuiz()
                     }
-                Text("- \(difficulty.capitalized) Difficulty")
+                Spacer()
+                Text("\(difficulty.capitalized) Difficulty")
                     .font(.system(size: 26))
                     .padding()
-                Text("- \(amount) Questions")
+                Text("\(amount) Questions")
                     .font(.system(size: 26))
                     .padding()
-                
+                Spacer()
                 NavigationLink {
                     TestView()
                 } label : {
-                    Text("Start Game")
+                    Text("Start Quiz")
                         .font(.headline)
                         .frame(maxWidth: 200)
                         .frame(height: 55)
@@ -90,5 +92,5 @@ struct QuizStartView: View {
 
 
 #Preview {
-    QuizStartView(amount: 3, category: "General Knowledge", difficulty: "easy")
+    QuizStartView(amount: 5, category: "General Knowledge", difficulty: "easy")
 }
