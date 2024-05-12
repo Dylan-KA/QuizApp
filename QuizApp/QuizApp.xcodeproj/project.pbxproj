@@ -40,7 +40,6 @@
 		6B834A9D2BF0C9DF0068E120 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6B834A9C2BF0C9DF0068E120 /* FirebaseStorageCombine-Community */; };
 		6B834AA02BF0C9FC0068E120 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 6B834A9F2BF0C9FC0068E120 /* GoogleSignIn */; };
 		6B834AA22BF0C9FC0068E120 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6B834AA12BF0C9FC0068E120 /* GoogleSignInSwift */; };
-		6BA2C33A2BE07509000AF6FE /* QuizAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */; };
 		6BA2C33C2BE07509000AF6FE /* QuizSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2C33B2BE07509000AF6FE /* QuizSettingsView.swift */; };
 		6BA2C33E2BE0750A000AF6FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2C33D2BE0750A000AF6FE /* Assets.xcassets */; };
 		6BA2C3412BE0750A000AF6FE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA2C3402BE0750A000AF6FE /* Preview Assets.xcassets */; };
@@ -50,17 +49,13 @@
 		CFC997352BE9C25B00F11270 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997342BE9C25B00F11270 /* LeaderboardView.swift */; };
 		CFC997372BE9D1D200F11270 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */; };
 		E35591B62BEC7B9C0095E249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */; };
-		E35591B92BEC7D930095E249 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = E35591B82BEC7D930095E249 /* FirebaseAnalytics */; };
-		E35591BB2BEC7D930095E249 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E35591BA2BEC7D930095E249 /* FirebaseAnalyticsSwift */; };
-		E35591BE2BEC82C10095E249 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = E35591BD2BEC82C10095E249 /* FirebaseAuth */; };
 		E35591C02BEC83560095E249 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591BF2BEC83560095E249 /* AuthenticationView.swift */; };
 		E35591C22BEC86530095E249 /* SignInWithEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C12BEC86530095E249 /* SignInWithEmail.swift */; };
 		E35591C62BEC8EB00095E249 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C52BEC8EAF0095E249 /* AuthenticationManager.swift */; };
 		E35591C82BF05F890095E249 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C72BF05F890095E249 /* RootView.swift */; };
 		E35591CA2BF062E10095E249 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C92BF062E10095E249 /* SettingsView.swift */; };
-		E35591CD2BF086CB0095E249 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E35591CC2BF086CB0095E249 /* GoogleSignIn */; };
-		E35591CF2BF086CB0095E249 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E35591CE2BF086CB0095E249 /* GoogleSignInSwift */; };
 		E35591D62BF08EEF0095E249 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591D52BF08EEF0095E249 /* Utilities.swift */; };
+		E3DF82212BF0DB23008A0888 /* QuizAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -302,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DF82212BF0DB23008A0888 /* QuizAppApp.swift in Sources */,
 				CFC997332BE9C0C800F11270 /* WelcomeView.swift in Sources */,
 				6BE045702BE0D75300C72002 /* QuizSettingsViewModel.swift in Sources */,
 				6BA2C33C2BE07509000AF6FE /* QuizSettingsView.swift in Sources */,
@@ -314,11 +310,9 @@
 				CFC997352BE9C25B00F11270 /* LeaderboardView.swift in Sources */,
 				6B7E00BB2BEDD47400292841 /* TestView.swift in Sources */,
 				6B29FA182BE9C02800166EE2 /* CategoriesView.swift in Sources */,
-				6BA2C33A2BE07509000AF6FE /* QuizAppApp.swift in Sources */,
 				6B7E00B92BEDC43400292841 /* QuizStartView.swift in Sources */,
 				E35591C02BEC83560095E249 /* AuthenticationView.swift in Sources */,
 				E35591CA2BF062E10095E249 /* SettingsView.swift in Sources */,
-				6BA2C33A2BE07509000AF6FE /* QuizAppApp.swift in Sources */,
 				E35591C82BF05F890095E249 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
