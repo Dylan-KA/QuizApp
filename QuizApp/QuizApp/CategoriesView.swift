@@ -43,22 +43,20 @@ struct CategoriesView: View {
     ]
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Quiz Categories")
-                    .font(.system(size: 40))
-                    .bold()
-                    .lineLimit(nil)
-                    .padding(30)
-                Spacer()
-                List(categoriesWithImages, id: \.0) { category, imageName in
-                    NavigationLink(destination: QuizStartView(amount: Int(viewModel.amount), category: category, difficulty: viewModel.difficulty)) {
-                        HStack {
-                            Image(systemName: imageName)
-                            Text(category)
-                                .font(.system(size: 26))
+        VStack {
+            Text("Quiz Categories")
+                .font(.system(size: 40))
+                .bold()
+                .lineLimit(nil)
+                .padding(30)
+            Spacer()
+            List(categoriesWithImages, id: \.0) { category, imageName in
+                NavigationLink(destination: QuizStartView(amount: Int(viewModel.amount), category: category, difficulty: viewModel.difficulty)) {
+                    HStack {
+                        Image(systemName: imageName)
+                        Text(category)
+                            .font(.system(size: 26))
                             .padding()
-                        }
                     }
                 }
             }
@@ -67,5 +65,7 @@ struct CategoriesView: View {
 }
 
 #Preview {
-    CategoriesView(difficulty: "easy", amount: 5)
+    NavigationView {
+        CategoriesView(difficulty: "easy", amount: 5)
+    }
 }

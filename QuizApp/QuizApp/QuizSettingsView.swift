@@ -10,73 +10,73 @@ import SwiftUI
 struct QuizSettingsView: View {
     @StateObject var viewModel = QuizSettingsViewModel()
     
-    let difficulties = ["easy", "medium", "hard"] //API requies lower-case, need to fix for view
+    let difficulties = ["easy", "medium", "hard"]
     
     var body: some View {
-        NavigationView {
+        VStack {
+            Spacer()
+            Text("Quiz Settings")
+                .font(.system(size: 40))
+                .bold()
+            Spacer()
             VStack {
-                Spacer()
-                Text("Quiz Settings")
-                    .font(.system(size: 40))
-                    .bold()
-                Spacer()
-                VStack {
-                    HStack {
-                        Text("Difficulty")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.white)
-                        .bold()
-                        Spacer()
-                    }
-                    Picker("Difficulty", selection: $viewModel.difficulty) {
-                        ForEach(difficulties, id: \.self) {
-                            Text($0.capitalized)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                }
-                .padding(30)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.green)
-                )
-                VStack {
-                    HStack {
-                        Text("Questions: \(Int(viewModel.amount))")
-                            .font(.system(size: 20))
-                            .foregroundStyle(.white)
-                        .bold()
-                        Spacer()
-                    }
-                    Slider(value: $viewModel.amount, in: 5...20, step: 1.0)
-                        .frame(maxWidth: 325)
-                }
-                .padding(30)
-                .background(
-                    RoundedRectangle(cornerRadius: 10)
-                        .foregroundColor(.green)
-                )
-                Spacer()
-                NavigationLink {
-                    CategoriesView(difficulty: viewModel.difficulty, amount: viewModel.amount)
-                } label : {
-                    Text("Next")
-                        .font(.system(size: 24))
-                        .bold()
-                        .frame(maxWidth: 200)
-                        .frame(height: 55)
-                        .background(.cyan)
+                HStack {
+                    Text("Difficulty")
+                        .font(.system(size: 20))
                         .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                        .padding(.horizontal)
+                        .bold()
+                    Spacer()
                 }
-                Spacer()
+                Picker("Difficulty", selection: $viewModel.difficulty) {
+                    ForEach(difficulties, id: \.self) {
+                        Text($0.capitalized)
+                    }
+                }
+                .pickerStyle(.segmented)
             }
-            .padding()
+            .padding(30)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+            )
+            VStack {
+                HStack {
+                    Text("Questions: \(Int(viewModel.amount))")
+                        .font(.system(size: 20))
+                        .foregroundStyle(.white)
+                        .bold()
+                    Spacer()
+                }
+                Slider(value: $viewModel.amount, in: 5...20, step: 1.0)
+                    .frame(maxWidth: 325)
+            }
+            .padding(30)
+            .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .foregroundColor(.green)
+            )
+            Spacer()
+            NavigationLink {
+                CategoriesView(difficulty: viewModel.difficulty, amount: viewModel.amount)
+            } label : {
+                Text("Next")
+                    .font(.system(size: 24))
+                    .bold()
+                    .frame(maxWidth: 200)
+                    .frame(height: 55)
+                    .background(.cyan)
+                    .foregroundStyle(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    .padding(.horizontal)
+            }
+            Spacer()
         }
+        .padding()
     }
 }
 
 #Preview {
-    QuizSettingsView()
+    NavigationView {
+        QuizSettingsView()
+    }
 }
