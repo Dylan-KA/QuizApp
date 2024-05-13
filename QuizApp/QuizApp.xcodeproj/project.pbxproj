@@ -19,6 +19,8 @@
 		CFC997332BE9C0C800F11270 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997322BE9C0C800F11270 /* WelcomeView.swift */; };
 		CFC997352BE9C25B00F11270 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997342BE9C25B00F11270 /* LeaderboardView.swift */; };
 		CFC997372BE9D1D200F11270 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */; };
+		E34A59912BF275E900EF3D89 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A59902BF275E900EF3D89 /* QuestionView.swift */; };
+		E34A59932BF275FF00EF3D89 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34A59922BF275FF00EF3D89 /* QuestionViewModel.swift */; };
 		E35591B62BEC7B9C0095E249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */; };
 		E35591C02BEC83560095E249 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591BF2BEC83560095E249 /* AuthenticationView.swift */; };
 		E35591C22BEC86530095E249 /* SignInWithEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C12BEC86530095E249 /* SignInWithEmail.swift */; };
@@ -50,6 +52,8 @@
 		CFC997322BE9C0C800F11270 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		CFC997342BE9C25B00F11270 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
+		E34A59902BF275E900EF3D89 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
+		E34A59922BF275FF00EF3D89 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E35591BF2BEC83560095E249 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E35591C12BEC86530095E249 /* SignInWithEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmail.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				6B29FA172BE9C02800166EE2 /* CategoriesView.swift */,
 				6B7E00B42BEDBC2B00292841 /* CategoriesViewModel.swift */,
 				6B7E00B82BEDC43400292841 /* QuizStartView.swift */,
+				E34A59902BF275E900EF3D89 /* QuestionView.swift */,
+				E34A59922BF275FF00EF3D89 /* QuestionViewModel.swift */,
 				CFC997342BE9C25B00F11270 /* LeaderboardView.swift */,
 				CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */,
 				6B7E00BA2BEDD47400292841 /* TestView.swift */,
@@ -243,6 +249,7 @@
 				E3DF822A2BF2132E008A0888 /* EntryViewModel.swift in Sources */,
 				6BA2C33C2BE07509000AF6FE /* QuizSettingsView.swift in Sources */,
 				6B7E00B52BEDBC2B00292841 /* CategoriesViewModel.swift in Sources */,
+				E34A59932BF275FF00EF3D89 /* QuestionViewModel.swift in Sources */,
 				E35591C62BEC8EB00095E249 /* AuthenticationManager.swift in Sources */,
 				E35591D62BF08EEF0095E249 /* Utilities.swift in Sources */,
 				E3DF82282BF21285008A0888 /* EntryView.swift in Sources */,
@@ -252,6 +259,7 @@
 				CFC997352BE9C25B00F11270 /* LeaderboardView.swift in Sources */,
 				6B7E00BB2BEDD47400292841 /* TestView.swift in Sources */,
 				E3DF82242BF20B3E008A0888 /* LoginView.swift in Sources */,
+				E34A59912BF275E900EF3D89 /* QuestionView.swift in Sources */,
 				6B29FA182BE9C02800166EE2 /* CategoriesView.swift in Sources */,
 				6B7E00B92BEDC43400292841 /* QuizStartView.swift in Sources */,
 				E35591C02BEC83560095E249 /* AuthenticationView.swift in Sources */,
