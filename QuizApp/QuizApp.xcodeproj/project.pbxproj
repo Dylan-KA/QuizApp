@@ -147,11 +147,6 @@
 				E35591D12BF08A980095E249 /* Info.plist */,
 				E35591D42BF08EC20095E249 /* Utility */,
 				6BA2C3392BE07509000AF6FE /* QuizAppApp.swift */,
-				E35591C72BF05F890095E249 /* RootView.swift */,
-				E35591C92BF062E10095E249 /* SettingsView.swift */,
-				E35591BF2BEC83560095E249 /* AuthenticationView.swift */,
-				E35591C12BEC86530095E249 /* SignInWithEmail.swift */,
-				E35591C52BEC8EAF0095E249 /* AuthenticationManager.swift */,
 				CFC997322BE9C0C800F11270 /* WelcomeView.swift */,
 				6BA2C33B2BE07509000AF6FE /* QuizSettingsView.swift */,
 				6BE0456F2BE0D75300C72002 /* QuizSettingsViewModel.swift */,
@@ -186,9 +181,22 @@
 		E35591D42BF08EC20095E249 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E3DF82222BF20A40008A0888 /* FireBase Code */,
 				E35591D52BF08EEF0095E249 /* Utilities.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		E3DF82222BF20A40008A0888 /* FireBase Code */ = {
+			isa = PBXGroup;
+			children = (
+				E35591C72BF05F890095E249 /* RootView.swift */,
+				E35591C92BF062E10095E249 /* SettingsView.swift */,
+				E35591BF2BEC83560095E249 /* AuthenticationView.swift */,
+				E35591C12BEC86530095E249 /* SignInWithEmail.swift */,
+				E35591C52BEC8EAF0095E249 /* AuthenticationManager.swift */,
+			);
+			path = "FireBase Code";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
