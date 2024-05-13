@@ -44,6 +44,75 @@ struct SignInWithEmail: View {
 
     var body: some View {
         NavigationStack {
+            VStack(spacing: 20) {
+                Text(viewModel.isSignUp ? "Sign Up With Email" : "Sign In With Email")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+
+                Divider()
+                    .frame(width: 250, height: 4)
+                    .background(Color.black)
+                    .padding(.vertical, 20)
+
+                TextField("Email...", text: $viewModel.email)
+                    .padding()
+                    .background(Color.gray.opacity(0.4))
+                    .cornerRadius(10)
+
+                SecureField("Password...", text: $viewModel.password)
+                    .padding()
+                    .background(Color.gray.opacity(0.4))
+                    .cornerRadius(10)
+
+                Button(viewModel.isSignUp ? "Sign Up" : "Sign In") {
+                    viewModel.authenticate()
+                }
+                .font(.headline)
+                .foregroundColor(.white)
+                .frame(height: 55)
+                .frame(maxWidth: .infinity)
+                .background(Color.blue)
+                .cornerRadius(10)
+                .padding(.top)
+
+                Button(action: {
+                    viewModel.isSignUp.toggle()
+                }) {
+                    Text(viewModel.isSignUp ? "Already have an account? Sign In" : "Need an account? Sign Up")
+                        .underline()
+                        .foregroundColor(.blue)
+                }
+                .padding(.top, 8)
+                
+                NavigationLink(value: viewModel.shouldNavigate) {
+                    EmptyView()
+                }
+            }
+            .navigationDestination(isPresented: $viewModel.shouldNavigate) {
+                WelcomeView()
+                
+            }
+            .padding()
+        }
+    }
+}
+
+struct SignInWithEmail_Previews: PreviewProvider {
+    static var previews: some View {
+        NavigationView {
+            SignInWithEmail()
+        }
+    }
+}
+
+
+/*truct SignInWithEmail: View {
+    @StateObject private var viewModel = SignInEmailViewModel()
+
+    var body: some View {
+        NavigationStack {
             VStack {
                 TextField("Email...", text: $viewModel.email)
                     .padding()
@@ -85,5 +154,5 @@ struct SignInWithEmail_Previews: PreviewProvider {
             SignInWithEmail()
         }
     }
-}
+} */
 
