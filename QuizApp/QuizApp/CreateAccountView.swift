@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateAccountView: View {
+    // Stateobject that initialises viewModel for Create Account
     @StateObject private var viewModel = CreateAccountViewModel()
 
     var body: some View {
@@ -15,18 +16,20 @@ struct CreateAccountView: View {
             VStack {
                 Spacer()
                 
+                // Header of Create Page, and relevant design attributes
                 Text("Create Your Account")
                     .font(.system(size: 45, weight: .bold))
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 25)
                 
+                // Error message when user enters already used Username
                 if !viewModel.usernameErrorMessage.isEmpty {
                     Text(viewModel.usernameErrorMessage)
                         .foregroundColor(.red)
                         .padding()
                 }
-                
+                // Entry field for user to enter Username, and relevant design attributes
                 TextField("Username", text: $viewModel.username)
                     .padding()
                     .font(.headline)
@@ -37,12 +40,13 @@ struct CreateAccountView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 5)
                 
+                // Error message when user enters already used Password
                 if !viewModel.passwordErrorMessage.isEmpty {
                     Text(viewModel.passwordErrorMessage)
                         .foregroundColor(.red)
                         .padding()
                 }
-                
+                // Secure entry field for user to enter Password, and relevant design attributes
                 SecureField("Password", text: $viewModel.password)
                     .padding()
                     .font(.headline)
@@ -53,6 +57,7 @@ struct CreateAccountView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 5)
                 
+                // Button to create the account for user
                 Button(action: viewModel.createUserAccount) {
                     Text("Create Account")
                         .font(.system(size: 24))
@@ -66,10 +71,10 @@ struct CreateAccountView: View {
                 .padding()
                 
                 Spacer()
-            }
+            } // Spacing between button and bottom area. Navigation link to WelcomeView once account created
             .padding(70)
-            .background(Color(.systemGray6))
-            .edgesIgnoringSafeArea(.all)
+            .background(Color(.systemGray6)) // Sets background colour
+            .edgesIgnoringSafeArea(.all) //Extends background colour within safe areas
             .navigationDestination(isPresented: $viewModel.accountCreated) {
                 WelcomeView()
             }

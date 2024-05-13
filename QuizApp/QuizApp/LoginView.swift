@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    // Stateobject that initialises viewModel for Login
     @StateObject private var viewModel = LoginViewModel()
     
     var body: some View {
@@ -15,18 +16,20 @@ struct LoginView: View {
             VStack {
                 Spacer()
                 
+                // Header for page
                 Text("Select An Account")
                     .font(.system(size: 40, weight: .bold))
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 1)
                 
+                // Error if the incorrect password is used
                 if !viewModel.errorMessage.isEmpty {
                     Text(viewModel.errorMessage)
                         .foregroundColor(.red)
                         .padding()
                 }
-                
+                // Selection wheel to select a saved username
                 Picker("Username", selection: $viewModel.username) {
                     ForEach(viewModel.usernames, id: \.self) { name in
                         Text(name)
@@ -34,10 +37,12 @@ struct LoginView: View {
                             .font(.system(size: 25, weight: .medium))
                     }
                 }
+                // Style attiributes of wheel
                 .pickerStyle(WheelPickerStyle())
                 .padding(.horizontal)
                 .padding(.bottom, 5)
                 
+                // Secure entry field for password
                 SecureField("Password", text: $viewModel.password)
                     .padding()
                     .font(.headline)
@@ -47,6 +52,8 @@ struct LoginView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
                     .padding(.bottom, 5)
+                
+                // Button to login once correct password is entered, taking user to WelcomeVieww
                 
                 Button(action: {
                     viewModel.login()
@@ -67,10 +74,11 @@ struct LoginView: View {
                 Spacer()
             }
             .padding(70)
-            .background(Color(.systemGray6))
-            .edgesIgnoringSafeArea(.all)
+            .background(Color(.systemGray6)) //Background Colour
+            .edgesIgnoringSafeArea(.all) //Pushes colour within safe areas
             .navigationDestination(isPresented: $viewModel.isLoggedIn) {
                 WelcomeView()
+                // Navigation to WelcomeView once user has succefully logged in
             }
         }
     }
