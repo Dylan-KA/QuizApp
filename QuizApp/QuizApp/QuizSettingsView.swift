@@ -37,7 +37,7 @@ struct QuizSettingsView: View {
             .padding(30)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.green)
+                    .foregroundColor(Color(hue: 0.4, saturation: 0.5, brightness: 0.8))
             )
             VStack {
                 HStack {
@@ -53,7 +53,7 @@ struct QuizSettingsView: View {
             .padding(30)
             .background(
                 RoundedRectangle(cornerRadius: 10)
-                    .foregroundColor(.green)
+                    .foregroundColor(Color(hue: 0.4, saturation: 0.5, brightness: 0.8))
             )
             Spacer()
             NavigationLink {
