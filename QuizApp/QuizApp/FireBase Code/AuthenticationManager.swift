@@ -5,7 +5,7 @@
 //  Created by Shakil Sharif on 9/5/2024.
 //
 
-import Foundation
+/*import Foundation
 import FirebaseAuth
 
 struct AuthDataResultModel {
@@ -92,4 +92,4 @@ extension AuthenticationManager {
         return AuthDataResultModel(user: authDataResult.user)
         
     }
-}
+} */

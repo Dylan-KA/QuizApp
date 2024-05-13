@@ -105,7 +105,7 @@ struct AuthenticationView: View {
 
 
 
-import SwiftUI
+/* import SwiftUI
 import GoogleSignIn
 import GoogleSignInSwift
 import FirebaseAuth
@@ -195,4 +195,4 @@ struct AuthenticationView_Previews: PreviewProvider {
         }
     }
 }
-
+*/

@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
-import FirebaseAppCheck
 
 @main
 struct QuizAppApp: App {

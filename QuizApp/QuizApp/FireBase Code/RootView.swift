@@ -5,7 +5,7 @@
 //  Created by Shakil Sharif on 12/5/2024.
 //
 
-import SwiftUI
+/* import SwiftUI
 
 
 struct RootView: View {
@@ -35,4 +35,4 @@ struct RootView: View {
 
 #Preview {
     RootView()
-}
+} */
