@@ -10,6 +10,7 @@ import SwiftUI
 struct QuestionView: View {
     
     @StateObject var viewModel :QuestionViewModel
+    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
     init(quiz: Quiz) {
         _viewModel = StateObject(wrappedValue: QuestionViewModel(quiz: quiz))
@@ -18,9 +19,27 @@ struct QuestionView: View {
     var body: some View {
         if viewModel.quizComplete {
             // Show the destination view when quiz is complete
-            NavigationLink(destination: EntryView()) {
-                EmptyView() // Empty view to trigger NavigationLink
-            }
+            NavigationLink(
+                destination: QuizEndView(viewModel: QuizEndViewModel()),
+                label: {
+                    Text("View Leaderboard")
+                }
+            )
+            .font(.system(size: 24))
+            .bold()
+            .frame(maxWidth: 250)
+            .frame(height: 60)
+            .background(.green)
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .padding()
+            .simultaneousGesture(
+                TapGesture()
+                .onEnded {
+                    quizEndViewModel.score = viewModel.numOfCorrect
+                    print(quizEndViewModel)
+                }
+            )
         } else {
             VStack {
                 Text("Question \(viewModel.questionNumber) of \(viewModel.quiz.results.count)")

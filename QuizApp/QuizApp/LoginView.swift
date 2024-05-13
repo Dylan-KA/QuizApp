@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @StateObject var quizEndViewModel = QuizEndViewModel()
     
     var body: some View {
         NavigationStack {
@@ -55,6 +56,13 @@ struct LoginView: View {
                 .foregroundColor(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 .padding()
+                .simultaneousGesture(
+                    TapGesture()
+                    .onEnded {
+                        quizEndViewModel.user = viewModel.username
+                        print(quizEndViewModel.user)
+                    }
+                )
                 
                 Spacer()
             }

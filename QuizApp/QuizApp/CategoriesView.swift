@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CategoriesView: View {
     @StateObject var viewModel :CategoriesViewModel
+    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
     init(difficulty: String, amount :Double) {
         _viewModel = StateObject(wrappedValue: CategoriesViewModel(

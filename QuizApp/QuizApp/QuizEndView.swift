@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct QuizEndView: View {
-    @State public var score: Int = 0
-    @State public var totalQuestions: Int = 0
-    @State public var user: String = ""
-    @State public var category: String = ""
+    @ObservedObject var viewModel: QuizEndViewModel
+    @ObservedObject var leaderboardViewModel = LeaderboardViewModel()
     
     var body: some View {
         VStack {
@@ -23,7 +21,7 @@ struct QuizEndView: View {
             
             Spacer()
             
-            Text("Your score was: \(score)/\(totalQuestions)")
+            Text("Your score was: \(viewModel.score ?? 0)/\(Int(viewModel.totalQuestions ?? 0))")
                 .font(.title)
             
             Spacer()
@@ -65,6 +63,6 @@ struct QuizEndView: View {
 
 #Preview {
     NavigationView {
-        QuizEndView()
+        QuizEndView(viewModel: QuizEndViewModel())
     }
 }

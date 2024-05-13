@@ -12,6 +12,7 @@ struct QuizStartView: View {
     private var amount :Int
     private var category: String
     private var difficulty: String
+    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
     init(amount: Int, category: String, difficulty: String) {
             self.amount = amount
@@ -37,16 +38,25 @@ struct QuizStartView: View {
                     .font(.system(size: 26))
                     .padding()
                 Spacer()
-                NavigationLink(destination: quiz.map { QuestionView(quiz: $0) }) {
-                    Text("Start Quiz")
-                        .font(.headline)
-                        .frame(maxWidth: 200)
-                        .frame(height: 55)
-                        .background(.cyan)
-                        .foregroundStyle(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                        .padding()
+                ZStack{
+                    NavigationLink(destination: quiz.map { QuestionView(quiz: $0) }) {
+                        Text("Start Quiz")
+                            .font(.headline)
+                            .frame(maxWidth: 200)
+                            .frame(height: 55)
+                            .background(.cyan)
+                            .foregroundStyle(.white)
+                            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                            .padding()
+                    }
                 }
+                .simultaneousGesture(
+                    TapGesture()
+                        .onEnded {
+                            quizEndViewModel.category = category
+                            print(quizEndViewModel.category ?? "No value set")
+                        }
+                )
                 Spacer()
             }
     }
