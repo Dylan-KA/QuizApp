@@ -8,20 +8,19 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    var name :String = "name goes here"
-    
+    @AppStorage("currentUsername") var currentUsername: String = ""
+
     var body: some View {
         VStack {
             Spacer()
-
-            Text("Welcome")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            Text("\(name)")
-                .font(.system(size: 20))
+            Text("Welcome,")
+                .font(.system(size: 50, weight: .bold))
+                .padding(.bottom, 1)
+            Text(currentUsername)
+                .font(.system(size: 40))
                 .padding()
-
-            Spacer()
+                .padding(.bottom, 20)
+          
 
             NavigationLink(destination: QuizSettingsView()) {
                 Text("Start a Quiz")
@@ -46,7 +45,7 @@ struct WelcomeView: View {
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .padding()
-                
+
             Spacer()
         }
         .padding(70)
