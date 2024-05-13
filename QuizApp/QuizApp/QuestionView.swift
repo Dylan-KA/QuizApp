@@ -11,16 +11,27 @@ struct QuestionView: View {
     
     @StateObject var viewModel :QuestionViewModel
     
-    init(quiz: Quiz) {
-        _viewModel = StateObject(wrappedValue: QuestionViewModel(quiz: quiz))
+    init(quiz: Quiz, category :String) {
+        _viewModel = StateObject(wrappedValue: QuestionViewModel(quiz: quiz, category: category))
     }
     
     var body: some View {
         if viewModel.quizComplete {
             // Show the destination view when quiz is complete
-            NavigationLink(destination: EntryView()) {
-                EmptyView() // Empty view to trigger NavigationLink
-            }
+            NavigationLink(
+                destination: QuizEndView(viewModel: viewModel.quizEndViewModel ?? QuizEndViewModel(score: 0, totalQuestions: 0, user: "user", category: "C")),
+                label: {
+                    Text("View Leaderboard")
+                }
+            )
+            .font(.system(size: 24))
+            .bold()
+            .frame(maxWidth: 250)
+            .frame(height: 60)
+            .background(.green)
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
+            .padding()
         } else {
             VStack {
                 Text("Question \(viewModel.questionNumber) of \(viewModel.quiz.results.count)")
@@ -112,7 +123,7 @@ struct QuestionView_Previews: PreviewProvider {
         
         let quizPlaceholder = Quiz(results: [question1, question2])
         
-        let questionView = QuestionView(quiz: quizPlaceholder)
+        let questionView = QuestionView(quiz: quizPlaceholder, category: "General Knowledge")
         
         return questionView
     }

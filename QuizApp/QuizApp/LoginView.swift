@@ -67,9 +67,20 @@ struct LoginView: View {
                         .background(Color.cyan)
                         .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 }
-                .padding(.horizontal)
-                .padding(.top, 5)
-
+                .font(.system(size: 24))
+                .bold()
+                .frame(width: 250, height: 55)
+                .background(Color.cyan)
+                .foregroundColor(.white)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                .padding()
+                .simultaneousGesture(
+                    TapGesture()
+                    .onEnded {
+                        //quizEndViewModel.user = viewModel.username
+                        //print(quizEndViewModel.user)
+                    }
+                )
                 
                 Spacer()
             }
