@@ -23,7 +23,7 @@ struct QuizStartView: View {
             VStack {
                 Spacer()
                 Text("\(category)")
-                    .font(.system(size: 40))
+                    .font(.system(size: 30))
                     .bold()
                     .padding(30)
                     .onAppear {

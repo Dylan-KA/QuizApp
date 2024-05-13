@@ -39,7 +39,6 @@ class QuestionViewModel : ObservableObject {
             currentWrongOptions = quiz.results[questionNumber].incorrect_answers
             shuffleQuestions()
             questionNumber += 1
-            print("Getting next question")
         } else {
             quizComplete = true
             print("Out of questions")
