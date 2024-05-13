@@ -21,7 +21,12 @@ struct LoginView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 1)
                 
-                // Username selection or entry
+                if !viewModel.errorMessage.isEmpty {
+                    Text(viewModel.errorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                
                 Picker("Username", selection: $viewModel.username) {
                     ForEach(viewModel.usernames, id: \.self) { name in
                         Text(name)
@@ -33,7 +38,6 @@ struct LoginView: View {
                 .padding(.horizontal)
                 .padding(.bottom, 5)
                 
-                // Password entry
                 SecureField("Password", text: $viewModel.password)
                     .padding()
                     .font(.headline)
@@ -44,17 +48,21 @@ struct LoginView: View {
                     .padding(.horizontal)
                     .padding(.bottom, 5)
                 
-                // Login button
-                Button("Login") {
+                Button(action: {
                     viewModel.login()
+                }) {
+                    Text("Login")
+                        .font(.system(size: 24))
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 55)
+                        .background(Color.cyan)
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 }
-                .font(.system(size: 24))
-                .bold()
-                .frame(width: 250, height: 55)
-                .background(Color.cyan)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                .padding()
+                .padding(.horizontal)
+                .padding(.top, 5)
+
                 
                 Spacer()
             }
@@ -68,12 +76,6 @@ struct LoginView: View {
     }
 }
 
-// Preview
-
 #Preview {
     LoginView()
 }
-
-
-
-// Make me user profiles also

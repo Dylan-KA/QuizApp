@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CreateAccountView: View {
-    
     @StateObject private var viewModel = CreateAccountViewModel()
 
     var body: some View {
@@ -22,6 +21,12 @@ struct CreateAccountView: View {
                     .multilineTextAlignment(.center)
                     .padding(.bottom, 25)
                 
+                if !viewModel.usernameErrorMessage.isEmpty {
+                    Text(viewModel.usernameErrorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                }
+                
                 TextField("Username", text: $viewModel.username)
                     .padding()
                     .font(.headline)
@@ -31,6 +36,12 @@ struct CreateAccountView: View {
                     .overlay(RoundedRectangle(cornerRadius: 10.0).stroke(Color.gray, lineWidth: 1))
                     .padding(.horizontal)
                     .padding(.bottom, 5)
+                
+                if !viewModel.passwordErrorMessage.isEmpty {
+                    Text(viewModel.passwordErrorMessage)
+                        .foregroundColor(.red)
+                        .padding()
+                }
                 
                 SecureField("Password", text: $viewModel.password)
                     .padding()
@@ -65,7 +76,6 @@ struct CreateAccountView: View {
         }
     }
 }
-
 
 #Preview {
     CreateAccountView()

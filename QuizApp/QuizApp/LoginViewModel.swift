@@ -13,6 +13,7 @@ class LoginViewModel: ObservableObject {
     @Published var password: String = ""
     @Published var usernames: [String] = []
     @Published var isLoggedIn = false
+    @Published var errorMessage: String = ""
 
     @AppStorage("currentUsername") var storedUsername: String?
 
@@ -27,11 +28,17 @@ class LoginViewModel: ObservableObject {
 
     func login() {
         let users = UserDefaults.standard.array(forKey: "users") as? [[String: String]] ?? []
-        if users.first(where: { $0["username"] == username && $0["password"] == password }) != nil {
-            isLoggedIn = true
-            storedUsername = username  // Update @AppStorage with the current username
+        if let user = users.first(where: { $0["username"] == username }) {
+            if user["password"] == password {
+                isLoggedIn = true
+                storedUsername = username  // Update @AppStorage with the current username
+                errorMessage = ""
+            } else {
+                errorMessage = "Invalid Password"
+            }
         } else {
-            print("Login error")
+            errorMessage = "Username not found"
         }
     }
 }
+
