@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    var name :String = "name goes here"
+    
     var body: some View {
         VStack {
             Spacer()
@@ -15,30 +17,34 @@ struct WelcomeView: View {
             Text("Welcome")
                 .font(.largeTitle)
                 .fontWeight(.bold)
-
-            Divider()
-                .frame(width: 250, height: 4)
-                .background(Color.black)
-                .padding(.vertical, 20)
+            Text("\(name)")
+                .font(.system(size: 20))
+                .padding()
 
             Spacer()
 
             NavigationLink(destination: QuizSettingsView()) {
                 Text("Start a Quiz")
             }
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+            .font(.system(size: 24))
+            .bold()
+            .frame(maxWidth: 250)
+            .frame(height: 60)
+            .background(.cyan)
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .padding()
 
             NavigationLink(destination: LeaderboardView()) {
                 Text("Leaderboards")
             }
-            .padding()
-            .background(Color.green)
-            .foregroundColor(.white)
-            .cornerRadius(8)
+            .font(.system(size: 24))
+            .bold()
+            .frame(maxWidth: 250)
+            .frame(height: 60)
+            .background(.green)
+            .foregroundStyle(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .padding()
                 
             Spacer()
