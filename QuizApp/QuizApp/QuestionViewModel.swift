@@ -25,17 +25,17 @@ class QuestionViewModel : ObservableObject {
     }
     
     func shuffleQuestions() {
-        shuffledOptions[0] = currentAnswer!
-        shuffledOptions[1] = currentWrongOptions![0]
-        shuffledOptions[2] = currentWrongOptions![1]
-        shuffledOptions[3] = currentWrongOptions![2]
+        shuffledOptions[0] = decodeHTMLEntities(currentAnswer!) ?? ""
+        shuffledOptions[1] = decodeHTMLEntities(currentWrongOptions![0]) ?? ""
+        shuffledOptions[2] = decodeHTMLEntities(currentWrongOptions![1]) ?? ""
+        shuffledOptions[3] = decodeHTMLEntities(currentWrongOptions![2]) ?? ""
         shuffledOptions.shuffle()
     }
     
     func getNextQuestion() {
         if (questionNumber < quiz.results.count) {
-            currentQuestion = quiz.results[questionNumber].question
-            currentAnswer = quiz.results[questionNumber].correct_answer
+            currentQuestion = decodeHTMLEntities(quiz.results[questionNumber].question)
+            currentAnswer = decodeHTMLEntities(quiz.results[questionNumber].correct_answer)
             currentWrongOptions = quiz.results[questionNumber].incorrect_answers
             shuffleQuestions()
             questionNumber += 1
@@ -58,8 +58,17 @@ class QuestionViewModel : ObservableObject {
         getNextQuestion()
     }
     
-    func doSomething() {
-        
+    func decodeHTMLEntities(_ text: String) -> String? {
+        guard let data = text.data(using: .utf8) else {
+            return nil
+        }
+        do {
+            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+            return attributedString.string
+        } catch {
+            print("Error decoding HTML entities:", error)
+            return nil
+        }
     }
     
 }
