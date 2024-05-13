@@ -9,7 +9,6 @@ import SwiftUI
 
 struct QuizSettingsView: View {
     @StateObject var viewModel = QuizSettingsViewModel()
-    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
     let difficulties = ["easy", "medium", "hard"]
     
@@ -70,14 +69,6 @@ struct QuizSettingsView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
                     .padding(.horizontal)
             }
-            .simultaneousGesture(
-                TapGesture()
-                .onEnded {
-                    quizEndViewModel.totalQuestions = viewModel.amount
-                    print(quizEndViewModel.totalQuestions)
-                }
-            )
-            
             Spacer()
         }
         .padding()

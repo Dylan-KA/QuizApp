@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CategoriesView: View {
     @StateObject var viewModel :CategoriesViewModel
-    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
     init(difficulty: String, amount :Double) {
         _viewModel = StateObject(wrappedValue: CategoriesViewModel(
@@ -52,7 +51,7 @@ struct CategoriesView: View {
                 .padding(30)
             Spacer()
             List(categoriesWithImages, id: \.0) { category, imageName in
-                NavigationLink(destination: QuizStartView(amount: Int(viewModel.amount), category: category, difficulty: viewModel.difficulty)) {
+                NavigationLink(destination: QuizStartView(amount: Double(Int(viewModel.amount)), category: category, difficulty: viewModel.difficulty)) {
                     HStack {
                         Image(systemName: imageName)
                         Text(category)

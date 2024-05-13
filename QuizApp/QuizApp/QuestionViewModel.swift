@@ -8,8 +8,10 @@
 import Foundation
 
 class QuestionViewModel : ObservableObject {
+    @Published var quizEndViewModel :QuizEndViewModel?
     
     @Published var quiz: Quiz
+    @Published var category :String
     @Published var questionNumber :Int = 0
     @Published var currentQuestion: String?
     @Published var currentAnswer: String?
@@ -20,8 +22,9 @@ class QuestionViewModel : ObservableObject {
     @Published var isAnswerCorrect :Bool = false
     @Published var answerFeedback :String?
     
-    init(quiz: Quiz) {
+    init(quiz: Quiz, category: String) {
         self.quiz = quiz
+        self.category = category
     }
     
     func shuffleQuestions() {
@@ -41,6 +44,7 @@ class QuestionViewModel : ObservableObject {
             questionNumber += 1
         } else {
             quizComplete = true
+            setQuizEndVariables()
             print("Out of questions")
         }
     }
@@ -68,6 +72,10 @@ class QuestionViewModel : ObservableObject {
             print("Error decoding HTML entities:", error)
             return nil
         }
+    }
+    
+    func setQuizEndVariables() {
+        quizEndViewModel = QuizEndViewModel(score: numOfCorrect, totalQuestions: Double(quiz.results.count), user: "user", category: category)
     }
     
 }

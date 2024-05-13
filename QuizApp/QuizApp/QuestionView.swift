@@ -10,17 +10,16 @@ import SwiftUI
 struct QuestionView: View {
     
     @StateObject var viewModel :QuestionViewModel
-    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
-    init(quiz: Quiz) {
-        _viewModel = StateObject(wrappedValue: QuestionViewModel(quiz: quiz))
+    init(quiz: Quiz, category :String) {
+        _viewModel = StateObject(wrappedValue: QuestionViewModel(quiz: quiz, category: category))
     }
     
     var body: some View {
         if viewModel.quizComplete {
             // Show the destination view when quiz is complete
             NavigationLink(
-                destination: QuizEndView(viewModel: QuizEndViewModel()),
+                destination: QuizEndView(viewModel: viewModel.quizEndViewModel ?? QuizEndViewModel(score: 0, totalQuestions: 0, user: "user", category: "C")),
                 label: {
                     Text("View Leaderboard")
                 }
@@ -33,13 +32,6 @@ struct QuestionView: View {
             .foregroundStyle(.white)
             .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .padding()
-            .simultaneousGesture(
-                TapGesture()
-                .onEnded {
-                    quizEndViewModel.score = viewModel.numOfCorrect
-                    print(quizEndViewModel)
-                }
-            )
         } else {
             VStack {
                 Text("Question \(viewModel.questionNumber) of \(viewModel.quiz.results.count)")
@@ -131,7 +123,7 @@ struct QuestionView_Previews: PreviewProvider {
         
         let quizPlaceholder = Quiz(results: [question1, question2])
         
-        let questionView = QuestionView(quiz: quizPlaceholder)
+        let questionView = QuestionView(quiz: quizPlaceholder, category: "General Knowledge")
         
         return questionView
     }

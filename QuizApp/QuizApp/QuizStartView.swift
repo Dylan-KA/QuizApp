@@ -9,12 +9,11 @@ import SwiftUI
 
 struct QuizStartView: View {
     @State private var quiz: Quiz? //List of questions, populated after clicking begin
-    private var amount :Int
+    private var amount :Double
     private var category: String
     private var difficulty: String
-    @ObservedObject var quizEndViewModel = QuizEndViewModel()
     
-    init(amount: Int, category: String, difficulty: String) {
+    init(amount: Double, category: String, difficulty: String) {
             self.amount = amount
             self.category = category
             self.difficulty = difficulty
@@ -34,12 +33,12 @@ struct QuizStartView: View {
                 Text("\(difficulty.capitalized) Difficulty")
                     .font(.system(size: 26))
                     .padding()
-                Text("\(amount) Questions")
+                Text("\(Int(amount)) Questions")
                     .font(.system(size: 26))
                     .padding()
                 Spacer()
                 ZStack{
-                    NavigationLink(destination: quiz.map { QuestionView(quiz: $0) }) {
+                    NavigationLink(destination: quiz.map { QuestionView(quiz: $0, category: category) }) {
                         Text("Start Quiz")
                             .font(.headline)
                             .frame(maxWidth: 200)
@@ -50,13 +49,6 @@ struct QuizStartView: View {
                             .padding()
                     }
                 }
-                .simultaneousGesture(
-                    TapGesture()
-                        .onEnded {
-                            quizEndViewModel.category = category
-                            print(quizEndViewModel.category ?? "No value set")
-                        }
-                )
                 Spacer()
             }
     }
@@ -79,7 +71,7 @@ struct QuizStartView: View {
                     print("Invalid category: \(category)")
                     return
                 }
-                quiz = try await api.fetchQuizAPI(Amount: amount, Category: categoryInt, Difficulty: difficulty)
+                quiz = try await api.fetchQuizAPI(Amount: Int(amount), Category: categoryInt, Difficulty: difficulty)
                 print("Printing the first question in the list")
                 if let question = quiz?.results.first {
                     print("Question: \(question.question)")

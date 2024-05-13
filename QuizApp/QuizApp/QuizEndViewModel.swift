@@ -7,14 +7,20 @@ class QuizEndViewModel: ObservableObject {
     @Published var user: String?
     @Published var category: String?
     
-    init() {
-        print(score ?? "no score set")
-        print(totalQuestions ?? "no totalQuestions set")
-        print(user ?? "no user set")
-        print(category ?? "no category set")
+    @Published var quizEndViewModel :QuizEndViewModel?
+    
+    init(score: Int, totalQuestions :Double, user :String, category :String) {
+        self.score = score
+        self.totalQuestions = totalQuestions
+        self.user = user
+        self.category = category
         
-        if let score = score, let user = user, let category = category {
-            LeaderboardViewModel().AddData(name: user, category: category, score: score)
-        }
+        print(score)
+        print(totalQuestions)
+        print(user)
+        print(category)
+        
+        //leaderboardViewModel().AddData(name: user, category: category, score: score)
     }
+    
 }

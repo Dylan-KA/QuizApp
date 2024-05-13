@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject private var viewModel = LoginViewModel()
-    @StateObject var quizEndViewModel = QuizEndViewModel()
     
     var body: some View {
         NavigationStack {
@@ -59,8 +58,8 @@ struct LoginView: View {
                 .simultaneousGesture(
                     TapGesture()
                     .onEnded {
-                        quizEndViewModel.user = viewModel.username
-                        print(quizEndViewModel.user)
+                        //quizEndViewModel.user = viewModel.username
+                        //print(quizEndViewModel.user)
                     }
                 )
                 

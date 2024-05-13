@@ -63,6 +63,6 @@ struct QuizEndView: View {
 
 #Preview {
     NavigationView {
-        QuizEndView(viewModel: QuizEndViewModel())
+        QuizEndView(viewModel: QuizEndViewModel(score: 8, totalQuestions: 10, user: "user", category: "General Knowledge"))
     }
 }
