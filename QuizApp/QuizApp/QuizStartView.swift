@@ -38,7 +38,7 @@ struct QuizStartView: View {
                     .padding()
                 Spacer()
                 NavigationLink {
-                    TestView()
+                    QuestionView(quiz: quiz!)
                 } label : {
                     Text("Start Quiz")
                         .font(.headline)
