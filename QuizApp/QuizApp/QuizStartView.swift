@@ -37,9 +37,7 @@ struct QuizStartView: View {
                     .font(.system(size: 26))
                     .padding()
                 Spacer()
-                NavigationLink {
-                    QuestionView(quiz: quiz!)
-                } label : {
+                NavigationLink(destination: quiz.map { QuestionView(quiz: $0) }) {
                     Text("Start Quiz")
                         .font(.headline)
                         .frame(maxWidth: 200)
@@ -92,5 +90,7 @@ struct QuizStartView: View {
 
 
 #Preview {
-    QuizStartView(amount: 5, category: "General Knowledge", difficulty: "easy")
+    NavigationView {
+        QuizStartView(amount: 5, category: "General Knowledge", difficulty: "easy")
+    }
 }

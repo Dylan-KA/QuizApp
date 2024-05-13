@@ -16,6 +16,9 @@ class QuestionViewModel : ObservableObject {
     @Published var currentWrongOptions: [String]?
     @Published var shuffledOptions: [String] = ["", "", "", ""]
     @Published var numOfCorrect = 0
+    @Published var quizComplete :Bool = false
+    @Published var isAnswerCorrect :Bool = false
+    @Published var answerFeedback :String?
     
     init(quiz: Quiz) {
         self.quiz = quiz
@@ -30,17 +33,29 @@ class QuestionViewModel : ObservableObject {
     }
     
     func getNextQuestion() {
-        currentQuestion = quiz.results[questionNumber].question
-        currentAnswer = quiz.results[questionNumber].correct_answer
-        currentWrongOptions = quiz.results[questionNumber].incorrect_answers
-        shuffleQuestions()
-        questionNumber += 1
+        if (questionNumber < quiz.results.count) {
+            currentQuestion = quiz.results[questionNumber].question
+            currentAnswer = quiz.results[questionNumber].correct_answer
+            currentWrongOptions = quiz.results[questionNumber].incorrect_answers
+            shuffleQuestions()
+            questionNumber += 1
+            print("Getting next question")
+        } else {
+            quizComplete = true
+            print("Out of questions")
+        }
     }
     
     func selectOption(option :String) {
         if (currentAnswer == option) {
             numOfCorrect += 1
+            isAnswerCorrect = true
+            answerFeedback = "Correct!"
+        } else {
+            isAnswerCorrect = false
+            answerFeedback = "Incorrect!"
         }
+        getNextQuestion()
     }
     
     func doSomething() {

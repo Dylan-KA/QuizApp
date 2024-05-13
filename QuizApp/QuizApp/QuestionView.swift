@@ -26,28 +26,28 @@ struct QuestionView: View {
                 .font(.system(size: 40))
                 .padding()
             Spacer()
+            if let answerFeedback = viewModel.answerFeedback {
+                Text(answerFeedback)
+                    .foregroundColor(viewModel.isAnswerCorrect ? .green : .red)
+                    .padding()
+            }
             VStack {
-                Button(action: {
-                    if let option = viewModel.shuffledOptions.first {
-                        viewModel.selectOption(option: option)
-                    }
-                }) {
+                Button(action: { viewModel.selectOption(option: viewModel.shuffledOptions[0]) }) {
                     Text("Option 1: \(viewModel.shuffledOptions[0])")
                         .font(.system(size: 20))
                         .padding()
                 }
-                
-                Button(action: viewModel.doSomething) {
+                Button(action: { viewModel.selectOption(option: viewModel.shuffledOptions[1]) }) {
                     Text("Option 2: \(viewModel.shuffledOptions[1])")
                         .font(.system(size: 20))
                         .padding()
                 }
-                Button(action: viewModel.doSomething) {
+                Button(action: { viewModel.selectOption(option: viewModel.shuffledOptions[2]) }) {
                     Text("Option 3: \(viewModel.shuffledOptions[2])")
                         .font(.system(size: 20))
                         .padding()
                 }
-                Button(action: viewModel.doSomething) {
+                Button(action: { viewModel.selectOption(option: viewModel.shuffledOptions[3]) }) {
                     Text("Option 4: \(viewModel.shuffledOptions[3])")
                         .font(.system(size: 20))
                         .padding()
