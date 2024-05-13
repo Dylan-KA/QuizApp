@@ -29,18 +29,5 @@ class QuizAPI {
         let decoded = try JSONDecoder().decode(Quiz.self, from: data)
         return decoded
     }
-    
-    func decodeHTMLEntities(_ text: String) -> String? {
-        guard let data = text.data(using: .utf8) else {
-            return nil
-        }
-        do {
-            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-            return attributedString.string
-        } catch {
-            print("Error decoding HTML entities:", error)
-            return nil
-        }
-    }
         
 }
