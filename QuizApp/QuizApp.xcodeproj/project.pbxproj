@@ -22,6 +22,7 @@
 		CFC997372BE9D1D200F11270 /* LeaderboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */; };
 		CFC997392BF2113200F11270 /* QuizEndView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC997382BF2113200F11270 /* QuizEndView.swift */; };
 		CFC9973D2BF246CE00F11270 /* QuizEndViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9973C2BF246CE00F11270 /* QuizEndViewModel.swift */; };
+		CFC9973F2BF2FA3E00F11270 /* LeaderboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC9973E2BF2FA3E00F11270 /* LeaderboardManager.swift */; };
 		E35591B62BEC7B9C0095E249 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */; };
 		E35591C02BEC83560095E249 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591BF2BEC83560095E249 /* AuthenticationView.swift */; };
 		E35591C22BEC86530095E249 /* SignInWithEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35591C12BEC86530095E249 /* SignInWithEmail.swift */; };
@@ -56,6 +57,7 @@
 		CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewModel.swift; sourceTree = "<group>"; };
 		CFC997382BF2113200F11270 /* QuizEndView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEndView.swift; sourceTree = "<group>"; };
 		CFC9973C2BF246CE00F11270 /* QuizEndViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizEndViewModel.swift; sourceTree = "<group>"; };
+		CFC9973E2BF2FA3E00F11270 /* LeaderboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardManager.swift; sourceTree = "<group>"; };
 		E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E35591BF2BEC83560095E249 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		E35591C12BEC86530095E249 /* SignInWithEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithEmail.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				CFC9973C2BF246CE00F11270 /* QuizEndViewModel.swift */,
 				CFC997342BE9C25B00F11270 /* LeaderboardView.swift */,
 				CFC997362BE9D1D200F11270 /* LeaderboardViewModel.swift */,
+				CFC9973E2BF2FA3E00F11270 /* LeaderboardManager.swift */,
 				6B7E00BA2BEDD47400292841 /* QuestionView.swift */,
 				6B0BD50F2BF21F9A00176B9E /* QuestionViewModel.swift */,
 				E35591B52BEC7B9C0095E249 /* GoogleService-Info.plist */,
@@ -254,6 +257,7 @@
 				E35591D62BF08EEF0095E249 /* Utilities.swift in Sources */,
 				E3DF82282BF21285008A0888 /* EntryView.swift in Sources */,
 				6BE0456E2BE0A3A000C72002 /* QuizAPI.swift in Sources */,
+				CFC9973F2BF2FA3E00F11270 /* LeaderboardManager.swift in Sources */,
 				CFC997372BE9D1D200F11270 /* LeaderboardViewModel.swift in Sources */,
 				E35591C22BEC86530095E249 /* SignInWithEmail.swift in Sources */,
 				CFC997352BE9C25B00F11270 /* LeaderboardView.swift in Sources */,

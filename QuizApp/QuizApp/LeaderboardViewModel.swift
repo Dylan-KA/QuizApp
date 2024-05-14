@@ -11,7 +11,7 @@ class LeaderboardViewModel: ObservableObject {
     @Published var categories: [String] = []
     
     init(){
-        let testScore = QuizResult(name: "Keegen", category: "General Knowledge", score: 7)
+        /*let testScore = QuizResult(name: "Keegen", category: "General Knowledge", score: 7)
         let testScore4 = QuizResult(name: "Keegen", category: "Books", score: 8)
         let testScore8 = QuizResult(name: "Keegen", category: "Books", score: 5)
         let testScore1 = QuizResult(name: "Adnan", category: "Books", score: 8)
@@ -21,8 +21,45 @@ class LeaderboardViewModel: ObservableObject {
         let testScore3 = QuizResult(name: "Dylan", category: "Music", score: 8)
         let testScore7 = QuizResult(name: "Dylan", category: "General Knowledge", score: 9)
         
-        self.quizScores.append(contentsOf: [testScore, testScore1, testScore2, testScore3, testScore4, testScore5, testScore6, testScore7, testScore8])
+        self.quizScores.append(contentsOf: [testScore, testScore1, testScore2, testScore3, testScore4, testScore5, testScore6, testScore7, testScore8])*/
+        loadLeaderboard()
+        
         UpdateQuizScores()
+    }
+    
+    func saveLeadboard() {
+        let encoder = JSONEncoder()
+        do {
+            //the highScores array is encoded and the persistent file is saved with its contents
+            let data = try encoder.encode(quizScores)
+            let jsonString = String(decoding: data, as: UTF8.self)
+            FileManager().saveDocument(contents: jsonString, docName: fileName) { (error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+            }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func loadLeaderboard() {
+        FileManager().readDocument(docName: fileName) { (result) in
+            //if the file manager can successfully read from the persistent file then it's contents are decoded and the array highScores is filled with its contents
+            switch result {
+            case .success(let data):
+                let decoder = JSONDecoder()
+                do {
+                    quizScores = try decoder.decode([QuizResult].self, from: data)
+                } catch {
+                    // error handling
+                    print(error.localizedDescription)
+                }
+                // error handling if the file manager can not read from the persistent file
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     //Adds data to the quizScores array so that it can be displayed
@@ -116,7 +153,7 @@ class LeaderboardViewModel: ObservableObject {
         return scores
     }
     
-    struct QuizResult: Identifiable {
+    struct QuizResult: Identifiable, Codable {
         var id = UUID()
         var name: String
         var category: String

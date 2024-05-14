@@ -7,7 +7,8 @@ class QuizEndViewModel: ObservableObject {
     @Published var user: String?
     @Published var category: String?
     
-    @Published var quizEndViewModel :QuizEndViewModel?
+    //@Published var quizEndViewModel: QuizEndViewModel
+    @Published var leaderboardViewModel = LeaderboardViewModel()
     
     init(score: Int, totalQuestions :Double, user :String, category :String) {
         self.score = score
@@ -20,7 +21,8 @@ class QuizEndViewModel: ObservableObject {
         print(user)
         print(category)
         
-        //leaderboardViewModel().AddData(name: user, category: category, score: score)
+        leaderboardViewModel.AddData(name: user, category: category, score: score)
+        leaderboardViewModel.saveLeadboard()
     }
     
 }
