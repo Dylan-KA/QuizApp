@@ -21,7 +21,7 @@ struct QuestionView: View {
             NavigationLink(
                 destination: QuizEndView(viewModel: viewModel.quizEndViewModel ?? QuizEndViewModel(score: 0, totalQuestions: 0, user: "user", category: "C")),
                 label: {
-                    Text("View Leaderboard")
+                    Text("View Results")
                 }
             )
             .font(.system(size: 24))

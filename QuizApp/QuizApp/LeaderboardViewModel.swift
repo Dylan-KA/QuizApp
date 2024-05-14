@@ -25,12 +25,14 @@ class LeaderboardViewModel: ObservableObject {
         UpdateQuizScores()
     }*/
     
+    //Adds data to the quizScores array so that it can be displayed
     func AddData(name: String, category: String, score: Int) {
         let newQuizResult = QuizResult(name: name, category: category, score: score)
         quizScores.append(newQuizResult)
         UpdateQuizScores()
     }
     
+    //iterates through all categories in the quizScores array and returns a list of all categories that have data surrounding them. Called by the dropdown menu to show a list of available categories
     func getCategories() -> [String] {
         var categories = [String]()
         categories.append("All")
@@ -44,19 +46,23 @@ class LeaderboardViewModel: ObservableObject {
         return categories
     }
     
+    //Updates scores in the quiz score array so that if there are any duplicate quizResults that have the same name and category, their scores are added together
     func UpdateQuizScores() {
         var updatedScores: [QuizResult] = []
         var indexToRemove: [Int] = []
 
         for (index, score) in quizScores.enumerated() {
+            //if a quizResult exists that contains the same name and category, add them together
             if let existingIndex = updatedScores.firstIndex(where: { $0.name == score.name && $0.category == score.category }) {
                 updatedScores[existingIndex].score += score.score
                 indexToRemove.append(index)
             } else {
+                //if its a unique name and category, add straight to the array
                 updatedScores.append(score)
             }
         }
-
+        
+        //remove duplicate quizResults
         for index in indexToRemove.sorted(by: >) {
             quizScores.remove(at: index)
         }
@@ -64,6 +70,7 @@ class LeaderboardViewModel: ObservableObject {
         quizScores = updatedScores
     }
     
+    //Based on the selection of the menu, the quiz will show results for all categories or only one selected category
     func filteredQuizResults(selectedOption: String) -> [QuizResult] {
         var categoryScores = [QuizResult]()
         var allScores = [QuizResult]()
@@ -79,25 +86,31 @@ class LeaderboardViewModel: ObservableObject {
         }
         
         if selectedOption == "All" {
+            //player wants to see a combination of all scores so return addAllScores function
             return addAllScores(scores: &allScores)
         } else {
+            //returns an ordered array of quizResults that all have the same category
             return orderQuizScores(scores: &categoryScores)
         }
     }
     
+    //returns an ordered array of all quiz scores across every category
     func addAllScores(scores: inout [QuizResult]) -> [QuizResult]{
         var combinedQuizScores: [QuizResult] = []
         
         for score in scores {
+            //adds the scores of all quizResults with the same player name together
             if let existingPlayerScore = combinedQuizScores.firstIndex(where: {$0.name == score.name}) {
                 combinedQuizScores[existingPlayerScore].score += score.score
             } else {
+                //if its a new player name, just add straight to the array
                 combinedQuizScores.append(score)
             }
         }
         return orderQuizScores(scores: &combinedQuizScores)
     }
     
+    //orders the quiz result by highest score first
     func orderQuizScores(scores: inout [QuizResult]) -> [QuizResult]{
         scores.sort{$0.score > $1.score}
         return scores
