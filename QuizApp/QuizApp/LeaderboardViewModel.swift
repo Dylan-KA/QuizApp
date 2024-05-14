@@ -10,7 +10,7 @@ class LeaderboardViewModel: ObservableObject {
     var quizScores: [QuizResult] = []
     @Published var categories: [String] = []
     
-    /*init(){
+    init(){
         let testScore = QuizResult(name: "Keegen", category: "General Knowledge", score: 7)
         let testScore4 = QuizResult(name: "Keegen", category: "Books", score: 8)
         let testScore8 = QuizResult(name: "Keegen", category: "Books", score: 5)
@@ -23,7 +23,7 @@ class LeaderboardViewModel: ObservableObject {
         
         self.quizScores.append(contentsOf: [testScore, testScore1, testScore2, testScore3, testScore4, testScore5, testScore6, testScore7, testScore8])
         UpdateQuizScores()
-    }*/
+    }
     
     //Adds data to the quizScores array so that it can be displayed
     func AddData(name: String, category: String, score: Int) {
