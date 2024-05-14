@@ -35,16 +35,15 @@ struct QuestionView: View {
         } else {
             VStack {
                 Text("Question \(viewModel.questionNumber) of \(viewModel.quiz.results.count)")
-                    .font(.system(size: 40))
+                    .font(.system(size: 30))
                     .bold()
                     .padding(30)
                 Spacer()
                 Text("\(viewModel.currentQuestion ?? "")")
-                    .font(.system(size: 40))
+                    .font(.system(size: 30))
                     .lineLimit(nil)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding()
-                Spacer()
                 if let answerFeedback = viewModel.answerFeedback {
                     Text(answerFeedback)
                         .foregroundColor(viewModel.isAnswerCorrect ? .green : .red)
